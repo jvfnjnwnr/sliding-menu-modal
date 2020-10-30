@@ -1,0 +1,92 @@
+:root {
+	--black: hsla(0, 0%, 0%, 1);
+	--oxford-blue: hsla(221, 51%, 16%, 1);
+	--orange-web: hsla(37, 98%, 53%, 1);
+	--orange-web-transparent: hsla(37, 98%, 53%, 0.5);
+	--platinum: hsla(0, 0%, 90%, 1);
+	--white: hsla(0, 0%, 100%, 1);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	margin: 0;
+}
+
+.top-nav {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 1rem;
+	min-width: 15rem;
+	max-width: 30rem;
+	border-right: 1px solid var(--black);
+}
+
+.logo {
+	margin: 1rem;
+}
+
+.logo img {
+	border-radius: 50%;
+}
+
+.nav-links {
+	width: 100%;
+	padding: 0;
+	list-style: none;
+}
+
+.nav-links li {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	padding: 0.8rem;
+	background: var(--oxford-blue);
+	color: var(--white);
+}
+
+.nav-links li:hover {
+	cursor: pointer;
+	background: var(--orange-web);
+}
+
+/* Main container style */
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Modal styles */
+
+.modal-container {
+	display: none;
+	/* display: flex; */
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	/* display: none; */
+	background: hsla(0, 0%, 0%, 0.8);
+}
+
+.modal {
+	min-width: 20rem;
+	max-width: 25rem;
+	padding: 1rem 3rem;
+	text-align: center;
+	background: var(--orange-web-transparent);
+	border-radius: 1rem;
+	color: white;
+}
+
+.modal input {
+	width: 100%;
+}
