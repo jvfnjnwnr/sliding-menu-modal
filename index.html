@@ -35,7 +35,7 @@
 					Leverage agile frameworks to provide a robust synopsis for high level
 					overviews.
 				</p>
-				<button class="cta-button" id="open">Sign Up!</button>
+				<button class="cta-button" id="open-button">Sign Up!</button>
 			</header>
 			<main class="container">
 				<h2>On the Internet nobody knows you're a dog.</h2>
@@ -85,18 +85,20 @@
 		<!-- Modal HTML -->
 		<div class="modal-container" id="modal-container">
 			<div class="modal">
-				<button class="close-button" id="close-button">
-					<i class="fa fa-times"> </i>
-				</button>
+				
 				<div class="modal-header">
+					<button class="close-button" id="close-button">
+						<i class="fa fa-times"> </i>
+					</button>
 					<h3>Sign Up!</h3>
+				</div>
 					<div class="modal-content">
 						<p>
 							Plz sign up heer if you R hooman or dog. If cat, plz email with
 							lokayshun.
 						</p>
 						<form class="modal-form">
-							<div>
+							<div class="form-inputs">
 								<label for="name">
 									<input type="text" id="name" placeholder="Name" />
 								</label>
@@ -113,19 +115,25 @@
 										placeholder="Confirm Password"
 									/>
 								</label>
-								<label for="cat">I am a cat (=^ェ^=)</label>
-								<input type="radio" id="cat" value="Cat" name="is-cat" />
-
-								<label for="not-cat">Not a cat =①ω①=</label>
-								<input
-									type="radio"
-									id="not-cat"
-									value="Not a cat"
-									name="is-cat"
-								/>
-							</div>
-							<input type="submit" value="submit" class="submit" />
+								<div class="radio-inputs">
+									<label for="cat"
+										>I am a cat (=^ェ^=)
+										<input type="radio" id="cat" value="Cat" name="is-cat" />
+									</label>
+									<label for="not-cat"
+										>Not a cat (=①ω①=)
+										<input
+											type="radio"
+											id="not-cat"
+											value="Not a cat"
+											name="is-cat"
+										/>
+									</label>
+								</div>
+							
+							<input type="submit" value="Submit" class="submit" />
 						</form>
+					
 					</div>
 				</div>
 			</div>

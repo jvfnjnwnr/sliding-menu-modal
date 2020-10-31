@@ -4,7 +4,7 @@
 	--black: hsla(0, 0%, 0%, 1);
 	--oxford-blue: hsla(221, 51%, 16%, 1);
 	--orange-web: hsla(37, 98%, 53%, 1);
-	--orange-web-transparent: hsla(37, 98%, 53%, 0.5);
+	--orange-web-transparent: hsla(37, 98%, 53%, 0.95);
 	--platinum: hsla(0, 0%, 90%, 1);
 	--white: hsla(0, 0%, 100%, 1);
 
@@ -32,15 +32,29 @@ h6 {
 	line-height: 1;
 }
 
+input {
+	padding: 0.5rem;
+	margin: 0.2rem;
+	border: 0;
+}
+
+input:hover {
+	cursor: pointer;
+	filter: brightness(130%);
+}
+
+.page-content {
+	width: 100%;
+}
+
 .top-nav {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-right: 1rem;
-	min-width: 15rem;
+	min-width: 17rem;
 	max-width: 30rem;
-	border-right: 1px solid var(--black);
+	border-right: 1px solid var(--platinum);
 	background: var(--oxford-blue);
 	z-index: 100;
 }
@@ -83,77 +97,66 @@ h6 {
 }
 
 header {
+	position: relative;
 	padding: 1rem;
+	background: var(--oxford-blue);
+	text-align: center;
+	font-size: 130%;
+	color: white;
+	text-align: center;
 }
 
 header button {
 	width: 50%;
 }
 
+header h1 {
+	padding: 0 1rem;
+	max-width: 80%;
+	margin: 0 auto;
+}
+
+header p {
+	margin: 1rem 0;
+}
 /* Main container style */
 
 .container {
 	display: flex;
 	flex-direction: column;
 	padding: 1rem;
-}
-
-/* Modal styles */
-
-.modal-container {
-	display: none;
-	/* display: flex; */
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	/* display: none; */
-	background: hsla(0, 0%, 0%, 0.8);
-}
-
-.modal {
-	min-width: 20rem;
-	max-width: 25rem;
-	padding: 1rem 3rem;
-	text-align: center;
-	background: var(--orange-web-transparent);
-	border-radius: 1rem;
-	color: white;
-}
-
-.modal input {
-	width: 100%;
+	max-width: 100%;
 }
 
 /* Button styles */
-button {
+button,
+input[type="submit"] {
 	padding: 1rem;
 	border: none;
 	border-radius: 0.7rem;
-	background: var(--oxford-blue);
-	color: white;
+	background: var(--platinum);
+	color: var(--black);
 	transition: filter 0.2s ease-in-out;
 }
 
-button:hover {
+button:hover,
+button:focus {
 	cursor: pointer;
 	filter: brightness(175%);
+	outline: 0;
 }
 
 .toggle {
 	display: none;
 	position: fixed;
-	left: 0;
-	top: 0;
+	left: 1rem;
+	top: 1rem;
 	width: min-content;
 	text-align: left;
-	/* margin-left: 0;
-	margin-bottom: 0;
-	padding-bottom: 0; */
-	background: transparent;
+	background: hsla(0, 0%, 0%, 0.5);
+	border-radius: 20%;
 	transition: transform 0.4s ease-in-out;
-	color: var(--black);
+	color: var(--white);
 }
 
 .toggle:hover {
@@ -161,8 +164,102 @@ button:hover {
 	transform: scale(1.05);
 }
 
+.cta-button {
+	font-size: 1.2rem;
+}
+
+/* Modal styles */
+
+.modal-container {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	/* display: none; */
+	background: hsla(0, 0%, 0%, 0.8);
+}
+
+.modal {
+	display: flex;
+	flex-direction: column;
+	min-width: 20rem;
+	max-width: 25rem;
+	background: var(--orange-web-transparent);
+	border-radius: 1rem;
+	box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.5);
+	color: var(--black);
+	overflow: hidden;
+}
+
+.modal-header {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 1rem;
+	background: var(--oxford-blue);
+	color: var(--white);
+}
+
+.modal-header h3 {
+	text-align: center;
+	font-size: 1.8rem;
+	width: 100%;
+	margin: 0;
+}
+
+.close-button {
+	position: absolute;
+	flex: 1 0 2rem;
+	max-width: 3rem;
+	padding: 0.5rem 0.8rem;
+	font-size: 1.5rem;
+}
+
+.modal-content {
+	padding: 1rem;
+	text-align: center;
+}
+.form-inputs {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.form-inputs input {
+	flex: 1 1 auto;
+	width: 100%;
+	background: var(--platinum);
+}
+
+.radio-inputs {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	padding: 0.5rem;
+	font-size: 1.1rem;
+}
+
+.radio-inputs label {
+	text-align: right;
+}
+
+.radio-inputs input {
+	width: auto;
+}
+
+.form-inputs input[type="submit"] {
+	text-align: center;
+	margin: auto;
+}
+
 /* Set nav to disappear at small screen size */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 	.top-nav {
 		position: fixed;
 		top: 0;
@@ -173,5 +270,6 @@ button:hover {
 	}
 	.toggle {
 		display: block;
+		z-index: 100;
 	}
 }
