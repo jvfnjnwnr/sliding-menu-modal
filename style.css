@@ -181,8 +181,8 @@ button:focus {
 	bottom: 0;
 	height: 100%;
 	width: 100%;
-	/* display: none; */
 	background: hsla(0, 0%, 0%, 0.8);
+	animation: fade 0.5s forwards;
 }
 
 .modal {
@@ -195,6 +195,15 @@ button:focus {
 	box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.5);
 	color: var(--black);
 	overflow: hidden;
+}
+
+.show-modal {
+	display: flex;
+	animation: fadeIn 0.5s forwards;
+}
+
+.hide-modal {
+	animation: fadeOut 0.5s forwards;
 }
 
 .modal-header {
@@ -258,6 +267,25 @@ button:focus {
 	margin: auto;
 }
 
+/* Animations */
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
 /* Set nav to disappear at small screen size */
 @media (max-width: 700px) {
 	.top-nav {
@@ -271,5 +299,8 @@ button:focus {
 	.toggle {
 		display: block;
 		z-index: 100;
+	}
+	.slide-nav {
+		transform: translateX(0%);
 	}
 }

@@ -5,31 +5,24 @@ const menuToggleButton = document.querySelector("#toggle");
 const modalContainer = document.querySelector("#modal-container");
 const menuContainer = document.querySelector(".top-nav");
 
-const state = {
-	modalIsOpen: false,
-	menuIsOpen: false,
-};
-
-const toggleModal = () => {
-	if (state.modalIsOpen === false) {
-		modalContainer.style.display = "flex";
-		state.modalIsOpen = true;
-	} else {
-		modalContainer.style.display = "none";
-		state.modalIsOpen = false;
+const hideModal = (event) => {
+	if (event.target == modalContainer || event.target == modalCloseButton) {
+		modalContainer.classList.add("hide-modal");
+		setTimeout(() => {
+			modalContainer.classList.remove("show-modal");
+		}, 350);
 	}
 };
 
-const toggleMenu = () => {
-	if (state.menuIsOpen === false) {
-		menuContainer.style.transform = "translateX(0%)";
-		state.menuIsOpen = true;
-	} else {
-		menuContainer.style.transform = "translate(-100%)";
-		state.menuIsOpen = false;
-	}
-};
+menuToggleButton.addEventListener("click", () =>
+	menuContainer.classList.toggle("slide-nav")
+);
 
-modalOpenButton.addEventListener("click", toggleModal);
-modalCloseButton.addEventListener("click", toggleModal);
-menuToggleButton.addEventListener("click", toggleMenu);
+modalOpenButton.addEventListener("click", () => {
+	modalContainer.classList.remove("hide-modal");
+	modalContainer.classList.add("show-modal");
+});
+
+modalCloseButton.addEventListener("click", hideModal);
+
+window.addEventListener("click", hideModal);
