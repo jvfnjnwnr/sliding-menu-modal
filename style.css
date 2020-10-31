@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 :root {
 	--black: hsla(0, 0%, 0%, 1);
 	--oxford-blue: hsla(221, 51%, 16%, 1);
@@ -5,6 +7,8 @@
 	--orange-web-transparent: hsla(37, 98%, 53%, 0.5);
 	--platinum: hsla(0, 0%, 90%, 1);
 	--white: hsla(0, 0%, 100%, 1);
+
+	--modal-duration: 1s;
 }
 
 * {
@@ -14,6 +18,18 @@
 body {
 	display: flex;
 	margin: 0;
+	font-family: "PT Sans", "Gill Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Kanit", "Gill Sans", sans-serif;
+	font-weight: 400;
+	line-height: 1;
 }
 
 .top-nav {
@@ -25,6 +41,8 @@ body {
 	min-width: 15rem;
 	max-width: 30rem;
 	border-right: 1px solid var(--black);
+	background: var(--oxford-blue);
+	z-index: 100;
 }
 
 .logo {
@@ -47,13 +65,29 @@ body {
 	padding: 0;
 	margin: 0;
 	padding: 0.8rem;
+	border-bottom: 1px solid var(--orange-web);
 	background: var(--oxford-blue);
+
 	color: var(--white);
+	transition: background 0.2s ease-in-out;
+}
+
+.nav-links li:first-of-type {
+	border-top: 1px solid var(--orange-web);
 }
 
 .nav-links li:hover {
 	cursor: pointer;
 	background: var(--orange-web);
+	text-decoration: underline;
+}
+
+header {
+	padding: 1rem;
+}
+
+header button {
+	width: 50%;
 }
 
 /* Main container style */
@@ -61,6 +95,7 @@ body {
 .container {
 	display: flex;
 	flex-direction: column;
+	padding: 1rem;
 }
 
 /* Modal styles */
@@ -89,4 +124,54 @@ body {
 
 .modal input {
 	width: 100%;
+}
+
+/* Button styles */
+button {
+	padding: 1rem;
+	border: none;
+	border-radius: 0.7rem;
+	background: var(--oxford-blue);
+	color: white;
+	transition: filter 0.2s ease-in-out;
+}
+
+button:hover {
+	cursor: pointer;
+	filter: brightness(175%);
+}
+
+.toggle {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: min-content;
+	text-align: left;
+	/* margin-left: 0;
+	margin-bottom: 0;
+	padding-bottom: 0; */
+	background: transparent;
+	transition: transform 0.4s ease-in-out;
+	color: var(--black);
+}
+
+.toggle:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+/* Set nav to disappear at small screen size */
+@media (max-width: 600px) {
+	.top-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease-in-out;
+	}
+	.toggle {
+		display: block;
+	}
 }
