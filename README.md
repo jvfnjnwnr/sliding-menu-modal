@@ -22,7 +22,7 @@ https://andrew-braun.github.io/sliding-menu-modal/
 
 - HTML5
 - CSS3
-- Vanila JS
+- Vanilla JS
 - Font-Awesome
 - RandomUser.me
 
